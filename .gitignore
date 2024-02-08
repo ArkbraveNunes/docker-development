@@ -1,0 +1,5 @@
+node_modules
+projects/*
+.env
+docker-compose.override.yml
+.docker/*/mongo-data
