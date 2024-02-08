@@ -33,3 +33,11 @@ To run specific project
 ```shell
 docker compose up -d application-example
 ```
+
+### Clone submodules
+
+Open new terminal in the projects dir and execute
+
+```shell
+git clone https://github.com/ArkbraveNunes/nestjs-monorepo.git nestjs-monorepo
+```
