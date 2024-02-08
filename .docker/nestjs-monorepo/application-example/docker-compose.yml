@@ -1,0 +1,30 @@
+services:
+  api.application-example:
+    image: application-example:latest
+    build: ../
+    env_file: ./../../../.env
+    container_name: api.application-example
+    environment:
+      - VIRTUAL_HOST=api.application-example.localhost
+    volumes:
+      - ./../../../projects/nestjs-monorepo/:/app
+    command: sh -c "npm i --ignore-scripts && npm run start:dev -- customers"
+    depends_on:
+      - nginx-proxy
+      - db.mongo.customers.register
+
+  db.mongo.application-example:
+    image: mongo:latest
+    container_name: db.mongo.customers.register
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${APPLICATION_EXAMPLE__DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${APPLICATION_EXAMPLE__DB_PASS}
+      MONGO_INITDB_DATABASE: ${APPLICATION_EXAMPLE__DB_NAME}
+    volumes:
+      - db.mongo.application-example:/data/db
+    ports:
+      - 27017:27017
+    restart: always
+
+volumes:
+  db.mongo.application-example:

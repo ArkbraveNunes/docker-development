@@ -13,12 +13,18 @@ Root where all the applications docker settings are located
 
 ## Dependencies
 
-| ------------------------------------------------------------------------------------------------------------------------- |
 | [nvm](https://nodejs.org/pt-br/download/package-manager) |
 | [commitlint + husky + commitzen](https://dev.to/vitordevsp/padronizacao-de-commit-com-commitlint-husky-e-commitizen-3g1n) |
 | [commitlint + husky + commitzen](https://dev.to/vitordevsp/padronizacao-de-commit-com-commitlint-husky-e-commitizen-3g1n) |
 | [docker](https://docs.docker.com/engine/install/) |
-| ------------------------------------------------------------------------------------------------------------------------- |
+
+### Clone submodules
+
+Open new terminal in the projects dir and execute
+
+```shell
+git clone https://github.com/ArkbraveNunes/nestjs-monorepo.git nestjs-monorepo
+```
 
 ### Running the projects
 
@@ -32,12 +38,4 @@ To run specific project
 
 ```shell
 docker compose up -d application-example
-```
-
-### Clone submodules
-
-Open new terminal in the projects dir and execute
-
-```shell
-git clone https://github.com/ArkbraveNunes/nestjs-monorepo.git nestjs-monorepo
 ```
