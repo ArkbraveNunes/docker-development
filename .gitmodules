@@ -1,3 +1,0 @@
-[submodule "projects/nestjs-monorepo"]
-	path = projects/nestjs-monorepo
-	url = https://github.com/ArkbraveNunes/nestjs-monorepo.git

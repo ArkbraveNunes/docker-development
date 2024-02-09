@@ -1,15 +1,37 @@
+# Docker Development
+
+Olá, bom dia, aqui será apresentado uma documentação básica de instalação desse ambiente de desenvolvimento.
+
 # Husky, Commitlint and Commitzen
 
-Install Husky and Commitizen globally
+Inicialmente vamos instalar o Husky e Commitzen
 
 ```shell
 npm install -g commitizen
 npm install -g husky
 ```
 
-# docker-development
+### Clonar os Respositorios
 
-Root where all the applications docker settings are located
+Execute via terminal o arquivo "install.sh"
+
+```shell
+./install.sh
+```
+
+### Rodando os Projetos
+
+Para rodar todos os projetos execute via terminal esse comando:
+
+```shell
+docker compose up -d
+```
+
+Para rodar um projeto específico coloque a nomenclatura dele no final do comando já citado acima:
+
+```shell
+docker compose up -d application-example
+```
 
 ## Dependencies
 
@@ -18,24 +40,6 @@ Root where all the applications docker settings are located
 | [commitlint + husky + commitzen](https://dev.to/vitordevsp/padronizacao-de-commit-com-commitlint-husky-e-commitizen-3g1n) |
 | [docker](https://docs.docker.com/engine/install/) |
 
-### Clone submodules
+### Extras
 
-Open new terminal in the projects dir and execute
-
-```shell
-git clone https://github.com/ArkbraveNunes/nestjs-monorepo.git nestjs-monorepo
-```
-
-### Running the projects
-
-To run the projects
-
-```shell
-docker compose up -d
-```
-
-To run specific project
-
-```shell
-docker compose up -d application-example
-```
+Caso tenha algum erro ao rodar algum projeto verifique se o arquivo .env foi criado e dê uma olhada no arquivo README.md de cada projeto pra ver se não deixou passar nada!
