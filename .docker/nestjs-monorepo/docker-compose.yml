@@ -1,2 +1,2 @@
 include:
-  - ./application-example/docker-compose.yml
+  - ./application-template/docker-compose.yml
