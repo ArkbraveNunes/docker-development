@@ -1,0 +1,30 @@
+services:
+  api.application-openings:
+    image: application-openings:latest
+    build: ../
+    env_file: ./../../../.env
+    container_name: api.application-openings
+    environment:
+      - VIRTUAL_HOST=api.application-openings.localhost
+    volumes:
+      - ./../../../projects/go-basic/:/app
+    #command: sh -c "go run main.go"
+    depends_on:
+      - nginx-proxy
+      - db.mongo.application-openings
+
+  db.mongo.application-openings:
+    image: mongo:latest
+    container_name: db.mongo.application-openings
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${APPLICATION_OPENINGS__DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${APPLICATION_OPENINGS__DB_PASS}
+      MONGO_INITDB_DATABASE: ${APPLICATION_OPENINGS__DB_NAME}
+    volumes:
+      - db.mongo.application-openings:/data/db
+    ports:
+      - 27017:27017
+    restart: always
+
+volumes:
+  db.mongo.application-openings:

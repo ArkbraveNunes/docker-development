@@ -21,12 +21,10 @@ do
 
         git clone $GIT_URL $PWD/projects/$PROJECT
 
-        echo "Instalando os packages do $PROJECT ..."
+        echo "Installing the packages of $PROJECT ..."
 
-        docker compose run --rm $PROJECT npm i
-
-        echo "$PROJECT pronto para rodar"
+        echo "$PROJECT ready to run"
     fi
 done
 
-echo "Feito, todos os projetos instalados"
+echo "All projects are installed"
