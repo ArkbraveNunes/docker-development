@@ -11,20 +11,21 @@ services:
     #command: sh -c "go run main.go"
     depends_on:
       - nginx-proxy
-      - db.mongo.application-openings
+      - db.mysql.application-openings
 
-  db.mongo.application-openings:
-    image: mongo:latest
-    container_name: db.mongo.application-openings
+  db.mysql.application-openings:
+    image: mysql:latest
+    container_name: db.mysql.application-openings
     environment:
-      MONGO_INITDB_ROOT_USERNAME: ${APPLICATION_OPENINGS__DB_USER}
-      MONGO_INITDB_ROOT_PASSWORD: ${APPLICATION_OPENINGS__DB_PASS}
-      MONGO_INITDB_DATABASE: ${APPLICATION_OPENINGS__DB_NAME}
+      MYSQL_USER: ${APPLICATION_OPENINGS__DB_USER}
+      MYSQL_PASSWORD: ${APPLICATION_OPENINGS__DB_PASS}
+      MYSQL_DATABASE: ${APPLICATION_OPENINGS__DB_NAME}
+      MYSQL_ROOT_PASSWORD: ${APPLICATION_OPENINGS__DB_PASS}
     volumes:
-      - db.mongo.application-openings:/data/db
+      - db.mysql.application-openings:/data/db
     ports:
-      - 27017:27017
+      - 3306:3306
     restart: always
 
 volumes:
-  db.mongo.application-openings:
+  db.mysql.application-openings:
