@@ -1,5 +1,6 @@
 include:
   - .docker/nestjs-monorepo/docker-compose.yml
+  - .docker/go-basic/docker-compose.yml
 
 services:
   nginx-proxy:
