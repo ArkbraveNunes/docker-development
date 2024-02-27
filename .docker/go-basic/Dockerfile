@@ -2,4 +2,5 @@ FROM golang:1.22
 
 WORKDIR /app
 
-RUN go mod init application-openings
+# Install make
+RUN apt update && apt install -y make

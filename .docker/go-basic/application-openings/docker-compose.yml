@@ -8,7 +8,7 @@ services:
       - VIRTUAL_HOST=api.application-openings.localhost
     volumes:
       - ./../../../projects/go-basic/:/app
-    #command: sh -c "go run main.go"
+    command: sh -c "make run"
     depends_on:
       - nginx-proxy
       - db.mysql.application-openings
